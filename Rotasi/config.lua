@@ -80,6 +80,10 @@ Lopar = math.random(1, #LogoPartai)
 function ohdtag(logger)
 
     if not HideWebhook or ShowPingHook then
+
+        ohdpir = os.time{year=Waktu("Y"), month=Waktu("m"), day=Waktu("d"), hour=Waktu("H"), min=Waktu("M"), sec=Waktu("S")}
+        Dovi = ohdpir + (UTC_Time * 3600)
+        TimezNow = os.date("%c", Dovi)
 	
         if OdBot().status ~= "online" then
             if Jastip then
@@ -116,9 +120,14 @@ function ohdtag(logger)
             $descriptions = ']].. logger ..[[ ]].. kalimatku ..[[' + $Morez + ']].. chinfo ..[[ <#' + $chid + '>'
             $color       = ']]..Warna..[['
 
+            $footerObject = [PSCustomObject]@{
+                text = 'Ohdear2320' + "`n" + ']]..TimezNow..[['
+            }
+
             $embedObject = [PSCustomObject]@{
                 description = $descriptions
                 color       = $color
+                footer      = $footerObject
             }
 
             $embedArray.Add($embedObject) | Out-Null
@@ -143,6 +152,10 @@ function ohdmod(logger)
     InfoBy = "\nInfo By <@" .. userdc .. ">"
     TagRole = "<@&1057182557185257522>"
     Warna = 16711680
+
+    ohdpir = os.time{year=Waktu("Y"), month=Waktu("m"), day=Waktu("d"), hour=Waktu("H"), min=Waktu("M"), sec=Waktu("S")}
+    Dovi = ohdpir + (UTC_Time * 3600)
+    TimezNow = os.date("%c", Dovi)
         
     local script = [[
         $w = "]]..modpek..[["
@@ -153,9 +166,14 @@ function ohdmod(logger)
         $descriptions = ']].. logger ..[[ ]]..InfoBy..[['
         $color       = ']]..Warna..[['
 
+        $footerObject = [PSCustomObject]@{
+            text = 'Ohdear2320' + "`n" + ']]..TimezNow..[['
+        }
+
         $embedObject = [PSCustomObject]@{
             description = $descriptions
             color       = $color
+            footer      = $footerObject
         }
 
         $embedArray.Add($embedObject) | Out-Null
@@ -177,6 +195,10 @@ end
 function odnotice(logger)
 
     if not HideWebhook or ShowPingHook then
+
+        ohdpir = os.time{year=Waktu("Y"), month=Waktu("m"), day=Waktu("d"), hour=Waktu("H"), min=Waktu("M"), sec=Waktu("S")}
+        Dovi = ohdpir + (UTC_Time * 3600)
+        TimezNow = os.date("%c", Dovi)
 	
         if OdBot().status == "online" then
             statzBot = ":green_circle:"
@@ -209,9 +231,14 @@ function odnotice(logger)
             $descriptions = ']].. logger ..[['
             $color       = ']]..Warna..[['
 
+            $footerObject = [PSCustomObject]@{
+                text = 'Ohdear2320' + "`n" + ']]..TimezNow..[['
+            }
+
             $embedObject = [PSCustomObject]@{
                 description = $descriptions
                 color       = $color
+                footer      = $footerObject
             }
 
             $embedArray.Add($embedObject) | Out-Null
@@ -237,24 +264,9 @@ function odplant(logger)
 
 if not HideWebhook or ShowPlantHook then
 
-    MenitRdp = (os.date("*t", os.time()).min) + 0
-    JamRdp = (os.date("*t", os.time()).hour) + Selisih
-
-    if MenitRdp < 10 then
-        myMenit = "0"..MenitRdp
-    else
-        myMenit = MenitRdp
-    end
-
-    if JamRdp >= 24 then
-        JamRdp = JamRdp - 24
-    end
-
-    if JamRdp < 10 then
-        myJam = "0"..JamRdp
-    else
-        myJam = JamRdp
-    end
+    ohdpir = os.time{year=Waktu("Y"), month=Waktu("m"), day=Waktu("d"), hour=Waktu("H"), min=Waktu("M"), sec=Waktu("S")}
+    Dovi = ohdpir + (UTC_Time * 3600)
+    TimezNow = os.date("%c", Dovi)
 
     if block == 4584 then
         Thumbs = "https://raw.githubusercontent.com/ditampol-tzuyoon/Growtopia/main/pepper.webp"
@@ -286,7 +298,7 @@ if not HideWebhook or ShowPlantHook then
         $color       = ']]..Warna..[['
 
         $footerObject = [PSCustomObject]@{
-            text = 'Bonus Planting' + "`n" + '(Time : ]]..myJam..[[:]]..myMenit..[[)'
+            text = 'Bonus Planting' + "`n" + "`n" + ']]..TimezNow..[['
             icon_url = ']].. Thumbs ..[['
         }
 
@@ -336,19 +348,19 @@ end
 
 function ohdsay(logger, hookURL, Pings)
 
-if namapack == "crackers" then
-    Winter = "\n~\n>> Happy Christmas! Crackers Bought **("..EventBuy.." of 20)**"
-else
-    Winter = ""
-end
-    
-if LinkImage then
-    imagez = LinkImage
-else
-    imagez = ""
-end
+    if namapack == "crackers" then
+        Winter = "\n~\n>> Happy Christmas! Crackers Bought **("..EventBuy.." of 20)**"
+    else
+        Winter = ""
+    end
+        
+    if LinkImage then
+        imagez = LinkImage
+    else
+        imagez = ""
+    end
 
-        Judulz = "Rotasi Farm Pluto ("..versi..") || "..#ListPembeli.." Users."
+    Judulz = "Rotasi Farm Pluto ("..versi..") || "..#ListPembeli.." Users."
 
     if Pings then
         ingfo = "<@" .. userdc .. ">"
@@ -356,24 +368,9 @@ end
         ingfo = ""
     end
 
-    MenitRdp = (os.date("*t", os.time()).min) + 0
-    JamRdp = (os.date("*t", os.time()).hour) + Selisih
-
-    if MenitRdp < 10 then
-        myMenit = "0"..MenitRdp
-    else
-        myMenit = MenitRdp
-    end
-
-    if JamRdp >= 24 then
-        JamRdp = JamRdp - 24
-    end
-
-    if JamRdp < 10 then
-        myJam = "0"..JamRdp
-    else
-        myJam = JamRdp
-    end
+    ohdpir = os.time{year=Waktu("Y"), month=Waktu("m"), day=Waktu("d"), hour=Waktu("H"), min=Waktu("M"), sec=Waktu("S")}
+    Dovi = ohdpir + (UTC_Time * 3600)
+    TimezNow = os.date("%c", Dovi)
 
     if Istirahat then
         TempOff = "\n~\n**Bot akan Off Tiap Jam (_" ..InfoTidur().. "_) Selama " .. DelayTidur .. " Menit.**\n~\n"
@@ -492,7 +489,7 @@ AllDelay = "\n~\nBreak / Place / HT / Plant / World : **("
 
 
         $footerObject = [PSCustomObject]@{
-            text = 'Rotation Farm by Ohdear#2320' + "`n" + '(Time : ]]..myJam..[[:]]..myMenit..[[)'
+            text = 'Rotation Farm by Ohdear#2320' + "`n" + ']]..TimezNow..[['
             icon_url = ']].. Thumbs ..[['
         }
 
@@ -637,7 +634,7 @@ AllDelay = "\n~\nBreak / Place / HT / Plant / World : **("
 
 
         $footerObject = [PSCustomObject]@{
-            text = 'Rotation Farm by Ohdear#2320' + "`n" + '(Time : ]]..myJam..[[:]]..myMenit..[[)'
+            text = 'Rotation Farm by Ohdear#2320' + "`n" + ']]..TimezNow..[['
             icon_url = ']].. Thumbs ..[['
         }
 
@@ -736,7 +733,7 @@ AllDelay = "\n~\nBreak / Place / HT / Plant / World : **("
 
 
         $footerObject = [PSCustomObject]@{
-            text = 'Rotation Farm by Ohdear#2320' + "`n" + '(Time : ]]..myJam..[[:]]..myMenit..[[)'
+            text = 'Rotation Farm by Ohdear#2320' + "`n" + ']]..TimezNow..[['
             icon_url = ']].. Thumbs ..[['
         }
 
